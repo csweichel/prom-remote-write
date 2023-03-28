@@ -1,0 +1,14 @@
+# List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
+tasks:
+  - name: Infra
+    command: docker run --rm -d --name=grafana -p 3000:3000 grafana/grafana && ./cortex/run.sh
+
+# List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
+ports:
+  - name: Grafana
+    port: 3000
+    onOpen: open-preview
+  - name: Cortex
+    port: 9009
+    visibility: public
+    onOpen: ignore
